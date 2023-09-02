@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:razorpay_upi_integration/modal/product.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:razorpay_upi_integration/subscription_list_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -161,6 +162,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text("${plan.currencySymbol} ${plan.price}")),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Navigate to the SubscriptionListScreen when the button is pressed
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => SubscriptionListScreen(),
+            ),
+          );
+        },
+        tooltip: 'Subscriptions',
+        child: Icon(Icons.subscriptions),
       ),
     );
   }
